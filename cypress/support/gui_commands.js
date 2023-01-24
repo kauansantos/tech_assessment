@@ -391,3 +391,93 @@ Cypress.Commands.add('share_button', () => {
 Cypress.Commands.add('small_actions_session', () => {
     cy.get('#small-actions > :nth-child(1) > h2').should('be.visible')
 })
+
+// TRANSPORTATION PAGE
+
+Cypress.Commands.add('one_car_average_cost', () => {
+    cy.get('#numVehiclesInput').select('1')
+    cy.get('#maintCurrentSelect').select('Do Not Do')
+    cy.get('#vehicle1Miles').type('12,480')
+    cy.get('#vehicle1Select').select('Per Year')
+    cy.get('#vehicle1GasMileage').type('21')
+    cy.get('#maintReduceSelect').select('Will Do')
+    cy.get('#reduceMilesInput1').type('100')
+    cy.get('#reduceMilesSelect1').select('Per Year')
+    cy.get('#replaceVehicleInput1').type('100')
+})
+
+Cypress.Commands.add('default_flow_to_report_from_transport', () => {
+    cy.get('#to-waste').click()
+    cy.get('.sectionName').contains('Waste').should('be.visible')
+    cy.get('#to-report').click()
+    cy.get('.sectionName').contains('Your Household Carbon Footprint Report').should('be.visible')
+})
+
+    Cypress.Commands.add('five_car_average_cost', () => {
+        cy.get('#numVehiclesInput').select('5')
+        cy.get('#maintCurrentSelect').select('Do Not Do')
+
+        // VEICULO 1
+
+        cy.get('#vehicle1Miles').type('12,480')
+        cy.get('#vehicle1Select').select('Per Year')
+        cy.get('#vehicle1GasMileage').type('21')
+        cy.get('#maintReduceSelect').select('Will Do')
+        cy.get('#reduceMilesInput1').type('100')
+        cy.get('#reduceMilesSelect1').select('Per Year')
+        cy.get('#replaceVehicleInput1').type('100')
+
+        // VEICULO 2
+
+        cy.get('#vehicle2Miles').type('12,480')
+        cy.get('#vehicle2Select').select('Per Year')
+        cy.get('#vehicle2GasMileage').type('21')
+        cy.get('#reduceMilesInput2').type('100')
+        cy.get('#reduceMilesSelect2').select('Per Year')
+        cy.get('#replaceVehicleInput2').type('100')
+
+        // VEICULO 3
+
+        cy.get('#vehicle3Miles').type('12,480')
+        cy.get('#vehicle3Select').select('Per Year')
+        cy.get('#vehicle3GasMileage').type('21')
+        cy.get('#reduceMilesInput3').type('100')
+        cy.get('#reduceMilesSelect3').select('Per Year')
+        cy.get('#replaceVehicleInput3').type('100')
+
+        // VEICULO 4
+
+        cy.get('#vehicle4Miles').type('12,480')
+        cy.get('#vehicle4Select').select('Per Year')
+        cy.get('#vehicle4GasMileage').type('21')
+        cy.get('#reduceMilesInput4').type('100')
+        cy.get('#reduceMilesSelect4').select('Per Year')
+        cy.get('#replaceVehicleInput4').type('100')
+
+        // VEICULO 5
+
+        cy.get('#vehicle5Miles').type('12,480')
+        cy.get('#vehicle5Select').select('Per Year')
+        cy.get('#vehicle5GasMileage').type('21')
+        cy.get('#reduceMilesInput5').type('100')
+        cy.get('#reduceMilesSelect5').select('Per Year')
+        cy.get('#replaceVehicleInput5').type('100')
+    })
+
+    Cypress.Commands.add('one_car_average_cost_maintenance_done', () => {
+        cy.get('#numVehiclesInput').select('1')
+        cy.get('#maintCurrentSelect').select('Already Done')
+        cy.get('#vehicle1Miles').type('12,480')
+        cy.get('#vehicle1Select').select('Per Year')
+        cy.get('#vehicle1GasMileage').type('21')
+        cy.get('#reduceMilesInput1').type('100')
+        cy.get('#reduceMilesSelect1').select('Per Year')
+        cy.get('#replaceVehicleInput1').type('100')
+    })
+
+    Cypress.Commands.add('transportation_validation_page', () => {
+        cy.get('#to-transportation').click()
+        cy.get('.sectionName').contains('Transportation').should('be.visible')
+    })
+
+
