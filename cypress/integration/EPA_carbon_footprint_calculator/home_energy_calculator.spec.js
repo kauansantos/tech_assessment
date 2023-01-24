@@ -1,7 +1,7 @@
 describe('EPAs Carbon Footprint Calculator Home Energy', () => {
 
     beforeEach(() =>{
-        cy.visit('https://www3.epa.gov/carbon-footprint-calculator/')
+        cy.visit('https://www3.epa.gov/carbon-footprint-calculator/') 
     })
 
     // TESTES COM VARIACAO DE FONTE DE AQUECIMENTO E SEM CARRO E DESCARTE
