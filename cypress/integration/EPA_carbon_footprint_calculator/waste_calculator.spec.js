@@ -7,9 +7,7 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
     // TESTES COM VARIACAO DE DESCARTES
 
     it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -29,9 +27,7 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
     })
 
     it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e reciclando apenas plástico', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -54,9 +50,7 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
     })
 
     it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e reciclando todas opções', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -83,9 +77,7 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
     })
 
     it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos e iniciando a reciclagem apenas de vidro', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -108,9 +100,7 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
     })
 
     it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos e iniciando a reciclagem de todas as opcoes', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)

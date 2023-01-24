@@ -7,18 +7,14 @@ describe('EPAs Carbon Footprint Calculator Home Page', () => {
     // TESTES POSITIVOS
 
     it.only('Acessando calculadora', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').should('be.visible')
         cy.scrollTo(500, 0); 
     })
 
     it('Teste com 1 pessoa com gastos padroes, sem carro e sem descarte de residuos', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -38,9 +34,7 @@ describe('EPAs Carbon Footprint Calculator Home Page', () => {
     })
 
     it('Teste com 20 pessoas com gastos padroes, sem carro e sem descarte de residuos', () => {
-        cy.get('#ppl-in-household-input').type('20')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -60,9 +54,7 @@ describe('EPAs Carbon Footprint Calculator Home Page', () => {
     })
 
     it('Teste com 50 pessoa com gastos padroes, sem carro e sem descarte de residuos', () => {
-        cy.get('#ppl-in-household-input').type('50')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)

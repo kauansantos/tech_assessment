@@ -5,9 +5,7 @@ describe('EPAs Carbon Footprint Calculator Report', () => {
     })
 
     it('Teste de uma casa com 1 pessoa no zipcode 12345 com gastos padrões que resultado da soma dos gastos seja menor que a media dos Estados Unidos;', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -30,9 +28,7 @@ describe('EPAs Carbon Footprint Calculator Report', () => {
     })
 
     it('Teste de uma casa com 1 pessoa no zipcode 12345 com gastos padrões que resultado da soma dos gastos seja maior que a media dos Estados Unidos;', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -55,9 +51,7 @@ describe('EPAs Carbon Footprint Calculator Report', () => {
     })
 
     it('Teste de uma casa com 1 pessoa no zipcode 12345 com gastos padrões que seja exibido apenas “Home Energy” no relatorio final', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -92,9 +86,7 @@ describe('EPAs Carbon Footprint Calculator Report', () => {
     })
 
     it('Teste de uma casa com 1 pessoa no zipcode 12345 com gastos padrões que seja exibido apenas “Transportation” no relatorio final', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -129,9 +121,7 @@ describe('EPAs Carbon Footprint Calculator Report', () => {
     })
 
     it('Teste de uma casa com 1 pessoa no zipcode 12345 com gastos padrões que seja exibido apenas “Transportation” no relatorio final', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -166,9 +156,7 @@ describe('EPAs Carbon Footprint Calculator Report', () => {
     })
 
     it('Teste de uma casa com 1 pessoa no zipcode 12345 com gastos padrões que seja exibido apenas “Transportation” no relatorio final', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -190,9 +178,7 @@ describe('EPAs Carbon Footprint Calculator Report', () => {
     })
 
     it('Teste de uma casa com 1 pessoa no zipcode 12345 com gastos padrões que seja exibido apenas “Transportation” no relatorio final', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
@@ -214,9 +200,7 @@ describe('EPAs Carbon Footprint Calculator Report', () => {
     })
 
     it.only('Teste de uma casa com 1 pessoa no zipcode 12345 com gastos padrões que seja exibido apenas “Transportation” no relatorio final', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
+        cy.default_residents_zipcode()
         cy.wait(3000)
         cy.get('.sectionName').contains('Home Energy').should('be.visible')
         cy.scrollTo(500, 0)
