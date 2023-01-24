@@ -1,0 +1,22 @@
+{
+  "name": "tech_assessment",
+  "version": "1.0.0",
+  "description": "tech assesment for sinai",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kauansantos/tech_assessment.git"
+  },
+  "author": "Kauan Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kauansantos/tech_assessment/issues"
+  },
+  "homepage": "https://github.com/kauansantos/tech_assessment#readme",
+  "devDependencies": {
+    "cypress": "^9.1.1"
+  }
+}
