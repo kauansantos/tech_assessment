@@ -16,7 +16,10 @@ describe('EPAs Carbon Footprint Calculator Home Page', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.primary_heating_average_values('Natural Gas')
+         
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.default_flow_without_car_and_waste()
     })
 
@@ -24,7 +27,10 @@ describe('EPAs Carbon Footprint Calculator Home Page', () => {
         cy.tewnty_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.primary_heating_average_values('Natural Gas')
+         
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.default_flow_without_car_and_waste()
     })
 
@@ -32,7 +38,10 @@ describe('EPAs Carbon Footprint Calculator Home Page', () => {
         cy.fifty_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.primary_heating_average_values('Natural Gas')
+         
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.default_flow_without_car_and_waste()
     })
 

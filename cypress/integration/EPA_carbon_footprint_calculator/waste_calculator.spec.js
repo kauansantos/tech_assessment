@@ -10,12 +10,10 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.get('#primaryHeatingSource').select('Natural Gas')
-        cy.get('#naturalGasTextInput').type('23')
-        cy.get('#electricityTextInput').type('44')
-        cy.get('#electricityGreenTextInput').type('80')
-        cy.get('#fuelTextInput').type('72')
-        cy.get('#propaneTextInput').type('37')
+ 
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
 cy.default_flow_without_car_and_waste()
     })
 
@@ -23,12 +21,10 @@ cy.default_flow_without_car_and_waste()
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.get('#primaryHeatingSource').select('Natural Gas')
-        cy.get('#naturalGasTextInput').type('23')
-        cy.get('#electricityTextInput').type('44')
-        cy.get('#electricityGreenTextInput').type('80')
-        cy.get('#fuelTextInput').type('72')
-        cy.get('#propaneTextInput').type('37')
+ 
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.get('#to-transportation').click()
         cy.get('.sectionName').contains('Transportation').should('be.visible')
         cy.get('#numVehiclesInput').select('0')
@@ -45,12 +41,10 @@ cy.default_flow_without_car_and_waste()
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.get('#primaryHeatingSource').select('Natural Gas')
-        cy.get('#naturalGasTextInput').type('23')
-        cy.get('#electricityTextInput').type('44')
-        cy.get('#electricityGreenTextInput').type('80')
-        cy.get('#fuelTextInput').type('72')
-        cy.get('#propaneTextInput').type('37')
+ 
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.get('#to-transportation').click()
         cy.get('.sectionName').contains('Transportation').should('be.visible')
         cy.get('#numVehiclesInput').select('0')
@@ -71,12 +65,10 @@ cy.default_flow_without_car_and_waste()
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.get('#primaryHeatingSource').select('Natural Gas')
-        cy.get('#naturalGasTextInput').type('23')
-        cy.get('#electricityTextInput').type('44')
-        cy.get('#electricityGreenTextInput').type('80')
-        cy.get('#fuelTextInput').type('72')
-        cy.get('#propaneTextInput').type('37')
+ 
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.get('#to-transportation').click() 
         cy.get('.sectionName').contains('Transportation').should('be.visible')
         cy.get('#numVehiclesInput').select('0')
@@ -93,12 +85,10 @@ cy.default_flow_without_car_and_waste()
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.get('#primaryHeatingSource').select('Natural Gas')
-        cy.get('#naturalGasTextInput').type('23')
-        cy.get('#electricityTextInput').type('44')
-        cy.get('#electricityGreenTextInput').type('80')
-        cy.get('#fuelTextInput').type('72')
-        cy.get('#propaneTextInput').type('37')
+ 
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.get('#to-transportation').click() 
         cy.get('.sectionName').contains('Transportation').should('be.visible')
         cy.get('#numVehiclesInput').select('0')

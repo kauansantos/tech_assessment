@@ -314,3 +314,80 @@ Cypress.Commands.add('message_error_without_propane_primary_heating_values', () 
     cy.get('#error-monthly-utility').should('have.text', 'You must have an entry for Monthly Propane bill.')
 
 })
+
+// FINAL REPORT
+
+Cypress.Commands.add('good_work_message', () => {
+
+    cy.get('#good-work-msg').should('be.visible')
+
+})
+
+Cypress.Commands.add('no_good_work_message', () => {
+
+    cy.get('#good-work-msg').should('not.be.visible')
+
+})
+
+Cypress.Commands.add('energy_show_chart', () => {
+    cy.get('#transKey').click()
+    cy.get('#wasteKey').click()
+
+    cy.get('#current-total > .rowChart > .rowItems > .homeEnergyCharItem').should('be.visible')
+    cy.get('#current-total > .rowChart > .rowItems > .transportationCharItem').should('not.be.visible')
+    cy.get('#current-total > .rowChart > .rowItems > .wasteCharItem').should('not.be.visible')
+
+    cy.get('#new-total > .rowChart > .rowItems > .homeEnergyCharItem').should('be.visible')
+    cy.get('#new-total > .rowChart > .rowItems > .transportationCharItem').should('not.be.visible')
+    cy.get('#new-total > .rowChart > .rowItems > .wasteCharItem').should('not.be.visible')
+
+    cy.get('#us-avg > .rowChart > .rowItems > .homeEnergyCharItem').should('be.visible')
+    cy.get('#us-avg > .rowChart > .rowItems > .transportationCharItem').should('not.be.visible')
+    cy.get('#us-avg > .rowChart > .rowItems > .wasteCharItem').should('not.be.visible')
+})
+
+Cypress.Commands.add('transport_show_chart', () => {
+    cy.get('#homeKey').click()
+    cy.get('#wasteKey').click()
+
+    cy.get('#current-total > .rowChart > .rowItems > .homeEnergyCharItem').should('not.be.visible')
+    cy.get('#current-total > .rowChart > .rowItems > .transportationCharItem').should('be.visible')
+    cy.get('#current-total > .rowChart > .rowItems > .wasteCharItem').should('not.be.visible')
+
+    cy.get('#new-total > .rowChart > .rowItems > .homeEnergyCharItem').should('not.be.visible')
+    cy.get('#new-total > .rowChart > .rowItems > .transportationCharItem').should('be.visible')
+    cy.get('#new-total > .rowChart > .rowItems > .wasteCharItem').should('not.be.visible')
+
+    cy.get('#us-avg > .rowChart > .rowItems > .homeEnergyCharItem').should('not.be.visible')
+    cy.get('#us-avg > .rowChart > .rowItems > .transportationCharItem').should('be.visible')
+    cy.get('#us-avg > .rowChart > .rowItems > .wasteCharItem').should('not.be.visible')
+})
+
+Cypress.Commands.add('waste_show_chart', () => {
+    cy.get('#homeKey').click()
+    cy.get('#transKey').click()
+
+    cy.get('#current-total > .rowChart > .rowItems > .homeEnergyCharItem').should('not.be.visible')
+    cy.get('#current-total > .rowChart > .rowItems > .transportationCharItem').should('not.be.visible')
+    cy.get('#current-total > .rowChart > .rowItems > .wasteCharItem').should('be.visible')
+
+    cy.get('#new-total > .rowChart > .rowItems > .homeEnergyCharItem').should('not.be.visible')
+    cy.get('#new-total > .rowChart > .rowItems > .transportationCharItem').should('not.be.visible')
+    cy.get('#new-total > .rowChart > .rowItems > .wasteCharItem').should('be.visible')
+
+    cy.get('#us-avg > .rowChart > .rowItems > .homeEnergyCharItem').should('not.be.visible')
+    cy.get('#us-avg > .rowChart > .rowItems > .transportationCharItem').should('not.be.visible')
+    cy.get('#us-avg > .rowChart > .rowItems > .wasteCharItem').should('be.visible')
+})
+
+Cypress.Commands.add('print_icon_button', () => {
+    cy.get('#printicon').should('be.visible')
+})
+
+Cypress.Commands.add('share_button', () => {
+    cy.get('#openSharePanel').should('be.visible')
+})
+
+Cypress.Commands.add('small_actions_session', () => {
+    cy.get('#small-actions > :nth-child(1) > h2').should('be.visible')
+})

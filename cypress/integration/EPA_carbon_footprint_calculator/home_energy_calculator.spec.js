@@ -10,7 +10,10 @@ describe('EPAs Carbon Footprint Calculator Home Energy Page', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.primary_heating_average_values('Natural Gas')
+         
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.default_flow_without_car_and_waste()
     })
 
@@ -62,7 +65,10 @@ describe('EPAs Carbon Footprint Calculator Home Energy Page', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.primary_heating_average_values('Natural Gas')
+         
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.primary_heating_reduce_zero_will_do()
         cy.default_flow_without_car_and_waste()
     })
@@ -71,7 +77,10 @@ describe('EPAs Carbon Footprint Calculator Home Energy Page', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.primary_heating_average_values('Natural Gas')
+         
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.primary_heating_reduce_zero_will_not_do()
         cy.default_flow_without_car_and_waste()
     })
@@ -80,7 +89,10 @@ describe('EPAs Carbon Footprint Calculator Home Energy Page', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.primary_heating_average_values('Natural Gas')
+         
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.primary_heating_reduce_zero_already_done()
         cy.default_flow_without_car_and_waste()
     })
@@ -89,7 +101,10 @@ describe('EPAs Carbon Footprint Calculator Home Energy Page', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.primary_heating_average_values('Natural Gas')
+         
+ 
+ 
+ cy.primary_heating_average_values('Natural Gas')
         cy.primary_heating_reduce_default_values_will_do()
         cy.default_flow_without_car_and_waste()
     })
