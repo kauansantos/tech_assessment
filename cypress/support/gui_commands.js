@@ -9,6 +9,146 @@ Cypress.Commands.add('default_residents_zipcode', () => {
 
 })
 
+Cypress.Commands.add('tewnty_residents_zipcode', () => {
+
+    cy.get('#ppl-in-household-input').type('20')
+    cy.get('#zip-code-input').type('12345') 
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('fifty_residents_zipcode', () => {
+
+    cy.get('#ppl-in-household-input').type('50')
+    cy.get('#zip-code-input').type('12345') 
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('invalid_zipcode_zero', () => {
+
+    cy.get('#ppl-in-household-input').type('1')
+    cy.get('#zip-code-input').type('00000') 
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('invalid_zipcode_message', () => {
+
+    cy.get('#invalidZip').should('be.visible')
+    cy.scrollTo(500, 0)
+
+})
+
+Cypress.Commands.add('three_digits_zipcode', () => {
+
+    cy.get('#ppl-in-household-input').type('1')
+    cy.get('#zip-code-input').type('123') 
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('invalid_num_zipcode_message', () => {
+
+    cy.get('#invalidZipNum').should('be.visible')
+    cy.scrollTo(500, 0)
+
+})
+
+Cypress.Commands.add('zero_digits_zipcode', () => {
+
+    cy.get('#ppl-in-household-input').type('1')
+    cy.get('#zip-code-input').type(' ') 
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('without_people_zero_digits_zipcode', () => {
+
+    cy.get('#ppl-in-household-input').type(' ')
+    cy.get('#zip-code-input').type('00000')
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('without_people_valid_zipcode', () => {
+
+    cy.get('#ppl-in-household-input').type(' ')
+    cy.get('#zip-code-input').type('12345')
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('without_people_three_digits_zipcode', () => {
+
+    cy.get('#ppl-in-household-input').type(' ')
+    cy.get('#zip-code-input').type('123')
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('people_zipcode_special_digits', () => {
+
+    cy.get('#ppl-in-household-input').type(',')
+    cy.get('#zip-code-input').type(',')
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('people_zipcode_letter', () => {
+
+    cy.get('#ppl-in-household-input').type('e')
+    cy.get('#zip-code-input').type('e')
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('without_people_three_digits_zipcode', () => {
+
+    cy.get('#ppl-in-household-input').type(' ')
+    cy.get('#zip-code-input').type('123')
+    cy.get('#get-started').click()
+
+})
+
+Cypress.Commands.add('invalid_num_people_message', () => {
+
+    cy.get('#invalidNum').should('be.visible')
+    cy.scrollTo(500, 0)
+
+})
+
+Cypress.Commands.add('zero_digits_zipcode_and_people', () => {
+
+    cy.get('#ppl-in-household-input').type(' ')
+    cy.get('#zip-code-input').type(' ') 
+    cy.get('#get-started').click()
+
+})
+
+
+Cypress.Commands.add('about_assert', () => {
+
+    cy.get('#copy-driven-content > :nth-child(1) > h3').contains('About')
+    cy.get('span > .bold-n-blue').should('be.visible')
+
+})
+
+Cypress.Commands.add('how_to_assert', () => {
+
+    cy.get('#copy-driven-content > :nth-child(2) > h3').contains('How To')
+    cy.get('[href="https://fueleconomy.gov"]').should('be.visible')
+    cy.get('[href="https://www.fueleconomy.gov/mpg/MPG.do?action=calcMPG"]').should('be.visible')
+
+})
+
+Cypress.Commands.add('offline_calculator_assert', () => {
+
+    cy.get('#copy-driven-content > :nth-child(3) > h3').contains('Download')
+    cy.get('li > button').should('be.visible')
+
+})
+
 // HOME ENERGY COMMANDS
 
 Cypress.Commands.add('asserting_page_home_energy', () => {
