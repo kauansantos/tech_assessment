@@ -6,31 +6,23 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
 
     // TESTES COM VARIACAO DE DESCARTES
 
-    it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos', () => {
+    it('Teste com 1 pessoa com principal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
-        cy.get('.sectionName').contains('Home Energy').should('be.visible')
-        cy.scrollTo(500, 0)
+        cy.asserting_page_home_energy()
         cy.get('#primaryHeatingSource').select('Natural Gas')
         cy.get('#naturalGasTextInput').type('23')
         cy.get('#electricityTextInput').type('44')
         cy.get('#electricityGreenTextInput').type('80')
         cy.get('#fuelTextInput').type('72')
         cy.get('#propaneTextInput').type('37')
-        cy.get('#to-transportation').click()
-        cy.get('.sectionName').contains('Transportation').should('be.visible')
-        cy.get('#numVehiclesInput').select('0')
-        cy.get('#to-waste').click()
-        cy.get('.sectionName').contains('Waste').should('be.visible')
-        cy.get('#to-report').click()
-        cy.get('.sectionName').contains('Your Household Carbon Footprint Report').should('be.visible')
+cy.default_flow_without_car_and_waste()
     })
 
-    it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e reciclando apenas plástico', () => {
+    it('Teste com 1 pessoa com principal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e reciclando apenas plástico', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
-        cy.get('.sectionName').contains('Home Energy').should('be.visible')
-        cy.scrollTo(500, 0)
+        cy.asserting_page_home_energy()
         cy.get('#primaryHeatingSource').select('Natural Gas')
         cy.get('#naturalGasTextInput').type('23')
         cy.get('#electricityTextInput').type('44')
@@ -49,11 +41,10 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
         cy.get('.sectionName').contains('Your Household Carbon Footprint Report').should('be.visible')
     })
 
-    it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e reciclando todas opções', () => {
+    it('Teste com 1 pessoa com principal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e reciclando todas opções', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
-        cy.get('.sectionName').contains('Home Energy').should('be.visible')
-        cy.scrollTo(500, 0)
+        cy.asserting_page_home_energy()
         cy.get('#primaryHeatingSource').select('Natural Gas')
         cy.get('#naturalGasTextInput').type('23')
         cy.get('#electricityTextInput').type('44')
@@ -76,11 +67,10 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
         cy.get('.sectionName').contains('Your Household Carbon Footprint Report').should('be.visible')
     })
 
-    it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos e iniciando a reciclagem apenas de vidro', () => {
+    it('Teste com 1 pessoa com principal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos e iniciando a reciclagem apenas de vidro', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
-        cy.get('.sectionName').contains('Home Energy').should('be.visible')
-        cy.scrollTo(500, 0)
+        cy.asserting_page_home_energy()
         cy.get('#primaryHeatingSource').select('Natural Gas')
         cy.get('#naturalGasTextInput').type('23')
         cy.get('#electricityTextInput').type('44')
@@ -99,11 +89,10 @@ describe('EPAs Carbon Footprint Calculator Waste Page', () => {
         cy.get('.sectionName').contains('Your Household Carbon Footprint Report').should('be.visible')
     })
 
-    it('Teste com 1 pessoa com princicpal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos e iniciando a reciclagem de todas as opcoes', () => {
+    it('Teste com 1 pessoa com principal fonte de aquecimento "Natural Gas" usando gastos padroes, sem carro e sem descarte de residuos e iniciando a reciclagem de todas as opcoes', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
-        cy.get('.sectionName').contains('Home Energy').should('be.visible')
-        cy.scrollTo(500, 0)
+        cy.asserting_page_home_energy()
         cy.get('#primaryHeatingSource').select('Natural Gas')
         cy.get('#naturalGasTextInput').type('23')
         cy.get('#electricityTextInput').type('44')
