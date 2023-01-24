@@ -6,7 +6,7 @@ describe('EPAs Carbon Footprint Calculator Home Energy Page', () => {
 
     // TESTS WITH VARIATION OF HEATING SOURCE, WITHOUT CAR AND WASTER
 
-    it.only('Test 1 person in zipcode 12345 with "Natural Gas" main heating source using standard expenses, without car and waste', () => {
+    it('Test 1 person in zipcode 12345 with "Natural Gas" main heating source using standard expenses, without car and waste', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()

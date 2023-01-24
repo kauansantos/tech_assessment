@@ -6,7 +6,7 @@ describe('EPAs Carbon Footprint Calculator Home Page', () => {
 
     // POSITIVE TESTS
 
-    it.only('Accessing Calculator', () => {
+    it('Accessing Calculator', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
