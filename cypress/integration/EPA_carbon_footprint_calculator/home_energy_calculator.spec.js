@@ -300,15 +300,6 @@ describe('EPAs Carbon Footprint Calculator Home Energy', () => {
         cy.get('.errorMessageBox > .ui-dialog-titlebar > .ui-dialog-titlebar-close > .ui-icon').click()
     })
 
-    // it('Caso de teste de uma casa com 1 pessoa no zipcode 12345 que não seja selecionado a principal fonte de aquecimento e siga preenchimento para outra seção', () => {
-    //     cy.get('#ppl-in-household-input').type('1')
-    //     cy.get('#zip-code-input').type('12345')
-    //     cy.get('#get-started').click()
-    //     cy.wait(3000)
-    //     cy.get('.sectionName').contains('Home Energy').should('be.visible')
-    //     cy.scrollTo(500, 0)
-    // })
-
     it('Caso de teste de uma casa com 1 pessoa no zipcode 12345 com principal fonte de aquecimento o “Natural Gas” e que siga preenchimento de outros campos e não preencha o valor da fonte de aquecimento selecionada', () => {
         cy.get('#ppl-in-household-input').type('1')
         cy.get('#zip-code-input').type('12345')
