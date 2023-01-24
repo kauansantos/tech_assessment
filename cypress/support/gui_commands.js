@@ -480,4 +480,44 @@ Cypress.Commands.add('default_flow_to_report_from_transport', () => {
         cy.get('.sectionName').contains('Transportation').should('be.visible')
     })
 
+    // WASTE PAGE
 
+    Cypress.Commands.add('selecting_plastic_already_recycle', () => {
+        cy.get('.sectionName').contains('Waste').should('be.visible')
+        cy.get('#plasticCheckbox').click()
+    })
+
+    Cypress.Commands.add('selecting_glass_will_recycle', () => {
+        cy.get('.sectionName').contains('Waste').should('be.visible')
+        cy.get('#glassCheckboxR').click()
+    })
+
+    Cypress.Commands.add('selecting_all_already_recycle', () => {
+        cy.get('.sectionName').contains('Waste').should('be.visible')
+        cy.get('#plasticCheckbox').click()
+        cy.get('#aluminumCheckbox').click()
+        cy.get('#glassCheckbox').click()
+        cy.get('#newspaperCheckbox').click()
+        cy.get('#magazinesCheckbox').click()
+    })
+
+    Cypress.Commands.add('selecting_all_will_recycle', () => {
+        cy.get('.sectionName').contains('Waste').should('be.visible')
+        cy.get('#aluminumCheckboxR').click()
+        cy.get('#plasticCheckboxR').click()
+        cy.get('#glassCheckboxR').click()
+        cy.get('#newspaperCheckboxR').click()
+        cy.get('#magazinesCheckboxR').click()
+    })
+
+    Cypress.Commands.add('flow_to_waste', () => {
+        cy.get('#to-transportation').click()
+        cy.get('.sectionName').contains('Transportation').should('be.visible')
+        cy.get('#numVehiclesInput').select('0')
+        cy.get('#to-waste').click()
+    })
+
+    Cypress.Commands.add('report_validation', () => {
+        cy.get('#to-report').click()
+        cy.get('.sectionName').contains('Your Household Carbon Footprint Report').should('be.visible')
+    })
