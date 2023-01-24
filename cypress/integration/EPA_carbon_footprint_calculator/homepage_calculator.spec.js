@@ -4,157 +4,104 @@ describe('EPAs Carbon Footprint Calculator Home Page', () => {
         cy.visit('https://www3.epa.gov/carbon-footprint-calculator/')
     })
 
-    // TESTES POSITIVOS
+    // POSITIVE TESTS
 
-    it.only('Acessando calculadora', () => {
-        cy.default_residents_zipcode()
-        cy.wait(3000)
-        cy.get('.sectionName').should('be.visible')
-        cy.scrollTo(500, 0); 
-    })
-
-    it('Teste com 1 pessoa com gastos padroes, sem carro e sem descarte de residuos', () => {
+    it.only('Accessing Calculator', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.get('#primaryHeatingSource').select('Natural Gas')
-        cy.get('#naturalGasTextInput').type('23')
-        cy.get('#electricityTextInput').type('44')
-        cy.get('#electricityGreenTextInput').type('80')
-        cy.get('#fuelTextInput').type('72')
-        cy.get('#propaneTextInput').type('37')
-cy.default_flow_without_car_and_waste()
     })
 
-    it('Teste com 20 pessoas com gastos padroes, sem carro e sem descarte de residuos', () => {
+    it('1 person test with standard expenses, no car and no waste', () => {
         cy.default_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.get('#primaryHeatingSource').select('Natural Gas')
-        cy.get('#naturalGasTextInput').type('23')
-        cy.get('#electricityTextInput').type('44')
-        cy.get('#electricityGreenTextInput').type('80')
-        cy.get('#fuelTextInput').type('72')
-        cy.get('#propaneTextInput').type('37')
-cy.default_flow_without_car_and_waste()
+        cy.primary_heating_average_values('Natural Gas')
+        cy.default_flow_without_car_and_waste()
     })
 
-    it('Teste com 50 pessoa com gastos padroes, sem carro e sem descarte de residuos', () => {
-        cy.default_residents_zipcode()
+    it('20 person test with standard expenses, no car and no wast', () => {
+        cy.tewnty_residents_zipcode()
         cy.wait(3000)
         cy.asserting_page_home_energy()
-        cy.get('#primaryHeatingSource').select('Natural Gas')
-        cy.get('#naturalGasTextInput').type('23')
-        cy.get('#electricityTextInput').type('44')
-        cy.get('#electricityGreenTextInput').type('80')
-        cy.get('#fuelTextInput').type('72')
-        cy.get('#propaneTextInput').type('37')
-cy.default_flow_without_car_and_waste()
+        cy.primary_heating_average_values('Natural Gas')
+        cy.default_flow_without_car_and_waste()
     })
 
-    it('Caso de teste realizando a verificacao de link da secao "About"', () => {
+    it('50 person test with standard expenses, no car and no wast', () => {
+        cy.fifty_residents_zipcode()
+        cy.wait(3000)
+        cy.asserting_page_home_energy()
+        cy.primary_heating_average_values('Natural Gas')
+        cy.default_flow_without_car_and_waste()
+    })
+
+    it('Test case analyzing link from "About" section', () => {
         cy.scrollTo(0, 500)
-        cy.get('#copy-driven-content > :nth-child(1) > h3').contains('About')
-        cy.get('span > .bold-n-blue').should('be.visible')
+        cy.about_assert()
     })
 
-    it('Caso de teste realizando a verificacao de link da secao "How To"', () => {
+    it('Test case analyzing link from "How To" section', () => {
         cy.scrollTo(0, 500)
-        cy.get('#copy-driven-content > :nth-child(2) > h3').contains('How To')
-        cy.get('[href="https://fueleconomy.gov"]').should('be.visible')
-        cy.get('[href="https://www.fueleconomy.gov/mpg/MPG.do?action=calcMPG"]').should('be.visible')
+        cy.how_to_assert()
     })
 
-    it('Caso de teste realizando a verificacao de download da calculadora offline', () => {
+    it('Test case analyzing offline calculator download', () => {
         cy.scrollTo(0, 500)
-        cy.get('#copy-driven-content > :nth-child(3) > h3').contains('Download')
-        cy.get('li > button').should('be.visible')
+        cy.offline_calculator_assert()
     })
 
-    //TESTES NEGATIVOS
+    // NEGATIVE TESTS
 
-    it('Teste de numero de zipcode invalido', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('00000')
-        cy.get('#get-started').click()
+    it('Test case invalid zipcode number', () => {
+        cy.invalid_zipcode_zero()
         cy.wait(2000)
-        cy.get('#invalidZip').should('be.visible')
-        cy.scrollTo(500, 0)
+        cy.invalid_zipcode_message()
     })
 
-    it('Teste de numero de zipcode com 3 digitos', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type('123')
-        cy.get('#get-started').click()
+    it('Test case 3 digit zipcode number', () => {
+        cy.three_digits_zipcode()
         cy.wait(2000)
-        cy.get('#invalidZipNum').should('be.visible')
-        cy.scrollTo(500, 0)
+        cy.invalid_num_zipcode_message()
     })
 
-    it('Teste de numero de zipcode com 0 digitos', () => {
-        cy.get('#ppl-in-household-input').type('1')
-        cy.get('#zip-code-input').type(' ')
-        cy.get('#get-started').click()
-        // cy.wait(2000)
-        cy.get('#invalidZipNum').should('be.visible')
-        cy.scrollTo(500, 0)
+    it('Test case zipcode number with 0 digits', () => {
+        cy.zero_digits_zipcode()
+        cy.invalid_num_zipcode_message()
     })
 
-    it('Caso de teste onde nao e inserido numero de pessoas e zipcode', () => {
-        cy.get('#ppl-in-household-input').type(' ')
-        cy.get('#zip-code-input').type(' ')
-        cy.get('#get-started').click()
-        // cy.wait(2000)
-        cy.get('#invalidNum').should('be.visible')
-        cy.get('#invalidZipNum').should('be.visible')
-        cy.scrollTo(500, 0)
+    it('Test case where no number of people and zipcode is entered', () => {
+        cy.zero_digits_zipcode_and_people()
+        cy.invalid_num_people_message()
+        cy.invalid_num_zipcode_message()
     })
 
-    it('Caso de teste onde nao e inserido numero de pessoas e zipcode seja incorreto', () => {
-        cy.get('#ppl-in-household-input').type(' ')
-        cy.get('#zip-code-input').type('00000')
-        cy.get('#get-started').click()
-        // cy.wait(2000)
-        cy.get('#invalidNum').should('be.visible')
-        cy.scrollTo(500, 0)
+    it('Test case where the number of people is not entered and the zipcode is incorrect', () => {
+        cy.without_people_zero_digits_zipcode()
+        cy.invalid_num_people_message()
     })
 
-    it('Caso de teste onde nao e inserido numero de pessoas e zipcode seja correto', () => {
-        cy.get('#ppl-in-household-input').type(' ')
-        cy.get('#zip-code-input').type('12345')
-        cy.get('#get-started').click()
-        // cy.wait(2000)
-        cy.get('#invalidNum').should('be.visible')
-        cy.scrollTo(500, 0)
+    it('Test case where the number of people is not entered and the zipcode is correct', () => {
+        cy.without_people_valid_zipcode()
+        cy.invalid_num_people_message()
     })
 
-    it('Caso de teste onde nao e inserido numero de pessoas e zipcode esteja com menos de 5 numeros', () => {
-        cy.get('#ppl-in-household-input').type(' ')
-        cy.get('#zip-code-input').type('123')
-        cy.get('#get-started').click()
-        // cy.wait(2000)
-        cy.get('#invalidNum').should('be.visible')
-        cy.get('#invalidZipNum').should('be.visible')
-        cy.scrollTo(500, 0)
+    it('Test case where no number of people is entered and zipcode has less than 5 numbers', () => {
+        cy.without_people_three_digits_zipcode()
+        cy.invalid_num_people_message()
+        cy.invalid_num_zipcode_message()
     })
 
-    it('Caso de teste onde nao e inserido numero de pessoas e zipcode esteja com menos de 5 numeros', () => {
-        cy.get('#ppl-in-household-input').type('e')
-        cy.get('#zip-code-input').type('e')
-        cy.get('#get-started').click()
-        // cy.wait(2000)
-        cy.get('#invalidNum').should('be.visible')
-        cy.get('#invalidZipNum').should('be.visible')
-        cy.scrollTo(500, 0)
+    it('Test case where zipcode and number of people filled with letters', () => {
+        cy.people_zipcode_letter()
+        cy.invalid_num_people_message()
+        cy.invalid_num_zipcode_message()
     })
 
-    it('Caso de teste onde nao e inserido numero de pessoas e zipcode esteja com menos de 5 numeros', () => {
-        cy.get('#ppl-in-household-input').type(',')
-        cy.get('#zip-code-input').type(',')
-        cy.get('#get-started').click()
-        // cy.wait(2000)
-        cy.get('#invalidNum').should('be.visible')
-        cy.get('#invalidZipNum').should('be.visible')
-        cy.scrollTo(500, 0)
+    it('Test case where zipcode and number of people filled with special character', () => {
+        cy.people_zipcode_special_digits()
+        cy.invalid_num_people_message()
+        cy.invalid_num_zipcode_message()
     })
+    
 })
