@@ -4,7 +4,7 @@ describe('EPAs Carbon Footprint Calculator Home Energy Page', () => {
         cy.visit('https://www3.epa.gov/carbon-footprint-calculator/') 
     })
 
-    // TESTS WITH VARIATION OF HEATING SOURCE, WITHOUT CAR AND WASTER
+    // TESTS WITH VARIATION OF HEATING SOURCE, WITHOUT CAR AND WASTER 
 
     it('Test 1 person in zipcode 12345 with "Natural Gas" main heating source using standard expenses, without car and waste', () => {
         cy.default_residents_zipcode()
